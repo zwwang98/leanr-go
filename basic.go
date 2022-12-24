@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	os "os"
 	"reflect"
 	"runtime"
 	"strings"
@@ -85,7 +86,40 @@ func enum() {
 		tb
 		pb
 	)
-	fmt.Printf("\n[enum] iota with calculation {b: %v}, {kb: %v}, {mb: %v}, {gb: %v}, {tb: %v}, {pb: %v}", b, kb, mb, gb, tb, pb)
+	fmt.Printf("\n[enum] iota with calculation {b: %v}, {kb: %v}, {mb: %v}, {gb: %v}, {tb: %v}, {pb: %v}\n", b, kb, mb, gb, tb, pb)
+}
+
+// show if statements
+func readFile(filename string) {
+	fmt.Printf("\n[readFile] Contents in %q: ", filename)
+	if contents, err := os.ReadFile(filename); err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Printf("%q\n", contents)
+	}
+}
+
+// switch
+// 1. break is default in every case
+func grade(score int) string {
+	g := ""
+
+	switch {
+	case score < 60:
+		g = "F"
+	case score < 70:
+		g = "D"
+	case score < 80:
+		g = "C"
+	case score < 90:
+		g = "B"
+	case score <= 100:
+		g = "A"
+	default:
+		// weird for panic method, it seems that panic could only accept type any
+		panic(fmt.Sprintf("Wrong score: %d\n", score))
+	}
+	return g
 }
 
 func main() {
@@ -97,4 +131,6 @@ func main() {
 	fmt.Printf("\n[Print Package-Scope Variables] {aa, type: %T, value: %v}, {bb, type: %T, value: %q}, {cc, type: %T, value: %v}\n", aa, aa, bb, bb, cc, cc)
 	consts()
 	enum()
+	readFile("abc.txt")
+	grade(-1)
 }
