@@ -6,6 +6,7 @@ import (
 	os "os"
 	"reflect"
 	"runtime"
+	"strconv"
 	"strings"
 )
 
@@ -122,6 +123,32 @@ func grade(score int) string {
 	return g
 }
 
+// for loop
+func convertToBinary(n int) string {
+	binaryStr := ""
+
+	for n > 0 {
+		loBit := n % 2
+		binaryStr = strconv.Itoa(loBit) + binaryStr
+		n /= 2
+	}
+
+	return binaryStr
+}
+
+func forever() {
+	// the same as 	while loop
+	i := 10
+	for i < 10 {
+		fmt.Println(i)
+	}
+
+	// without condition, for loop will loop forever
+	for {
+		fmt.Println("abc")
+	}
+}
+
 func main() {
 	fmt.Println("hello world")
 	variableNoInitial()
@@ -133,4 +160,5 @@ func main() {
 	enum()
 	readFile("abc.txt")
 	grade(-1)
+	fmt.Println(convertToBinary(6))
 }
