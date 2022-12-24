@@ -93,6 +93,7 @@ func enum() {
 // show if statements
 func readFile(filename string) {
 	fmt.Printf("\n[readFile] Contents in %q: ", filename)
+	// common way to handle error
 	if contents, err := os.ReadFile(filename); err != nil {
 		fmt.Println(err)
 	} else {
@@ -149,6 +150,43 @@ func forever() {
 	}
 }
 
+func eval(a int, b int, op string) (int, error) {
+	switch op {
+	case "+":
+		return a + b, nil
+	case "-":
+		return a - b, nil
+	case "*":
+		return a * b, nil
+	case "/":
+		q, _ := div(a, b)
+		return q, nil
+	default:
+		return 0, fmt.Errorf("unsupported operation: %s\n", op)
+	}
+}
+
+//  1. function could have more than one return values
+//  2. all return values must be used, otherwise the compiler will report error
+//  3. to escape compiler error on the unused one of the two returned values by one function,
+//     could name it as "_"
+func div(a, b int) (q, r int) {
+	return a / b, a % b
+}
+
+// https://go.dev/ref/spec#Function_types
+// variadic function
+// The final incoming parameter in a function signature may have a type prefixed with ....
+// A function with such a parameter is called variadic and may be invoked with zero or more arguments for that parameter.
+func sum(numbers ...int) int {
+	s := 0
+
+	for i := range numbers {
+		s += i
+	}
+	return s
+}
+
 func main() {
 	fmt.Println("hello world")
 	variableNoInitial()
@@ -161,4 +199,8 @@ func main() {
 	readFile("abc.txt")
 	grade(-1)
 	fmt.Println(convertToBinary(6))
+
+	// to escape error on the unused return value, use _
+	q, _ := div(1213, 13)
+	fmt.Println(q)
 }
