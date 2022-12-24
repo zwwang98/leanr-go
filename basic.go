@@ -187,6 +187,16 @@ func sum(numbers ...int) int {
 	return s
 }
 
+func swap(a, b *int) {
+	temp := *a
+	*a = *b
+	*b = temp
+}
+
+func swapWithoutPointer(a, b int) (int, int) {
+	return b, a
+}
+
 func main() {
 	fmt.Println("hello world")
 	variableNoInitial()
@@ -203,4 +213,11 @@ func main() {
 	// to escape error on the unused return value, use _
 	q, _ := div(1213, 13)
 	fmt.Println(q)
+
+	x, y := 4, 6
+	fmt.Printf("Before swap. {x: %v}, {y: %v}\n", x, y)
+	swap(&x, &y)
+	fmt.Printf("Swap once. {x: %v}, {y: %v}\n", x, y)
+	x, y = swapWithoutPointer(x, y)
+	fmt.Printf("Swap twice. {x: %v}, {y: %v}\n", x, y)
 }
