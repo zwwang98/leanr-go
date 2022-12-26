@@ -197,27 +197,33 @@ func swapWithoutPointer(a, b int) (int, int) {
 	return b, a
 }
 
-func main() {
-	fmt.Println("hello world")
-	variableNoInitial()
-	variableWithInitial()
-	variableTypeDeduction()
-	variableShortDeclaration()
-	fmt.Printf("\n[Print Package-Scope Variables] {aa, type: %T, value: %v}, {bb, type: %T, value: %q}, {cc, type: %T, value: %v}\n", aa, aa, bb, bb, cc, cc)
-	consts()
-	enum()
-	readFile("abc.txt")
-	grade(-1)
-	fmt.Println(convertToBinary(6))
-
-	// to escape error on the unused return value, use _
-	q, _ := div(1213, 13)
-	fmt.Println(q)
-
-	x, y := 4, 6
-	fmt.Printf("Before swap. {x: %v}, {y: %v}\n", x, y)
-	swap(&x, &y)
-	fmt.Printf("Swap once. {x: %v}, {y: %v}\n", x, y)
-	x, y = swapWithoutPointer(x, y)
-	fmt.Printf("Swap twice. {x: %v}, {y: %v}\n", x, y)
-}
+//
+//func main() {
+//	fmt.Println("hello world")
+//	variableNoInitial()
+//	variableWithInitial()
+//	variableTypeDeduction()
+//	variableShortDeclaration()
+//	fmt.Printf("\n[Print Package-Scope Variables] {aa, type: %T, value: %v}, {bb, type: %T, value: %q}, {cc, type: %T, value: %v}\n", aa, aa, bb, bb, cc, cc)
+//	consts()
+//	enum()
+//	readFile("abc.txt")
+//	grade(-1)
+//	fmt.Println(convertToBinary(6))
+//
+//	// to escape error on the unused return value, use _
+//	q, _ := div(1213, 13)
+//	fmt.Println(q)
+//
+//	x, y := 4, 6
+//	fmt.Printf("Before swap. {x: %v}, {y: %v}\n", x, y)
+//	swap(&x, &y)
+//	fmt.Printf("Swap once. {x: %v}, {y: %v}\n", x, y)
+//	x, y = swapWithoutPointer(x, y)
+//	fmt.Printf("Swap twice. {x: %v}, {y: %v}\n", x, y)
+//
+//	declareArray()
+//
+//	arr := [5]int{1, 2, 3, 4, 5}
+//	changeArr(&arr)
+//}
