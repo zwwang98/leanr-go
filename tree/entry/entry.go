@@ -5,6 +5,27 @@ import (
 	"learn-go/tree"
 )
 
+type myTreeNode struct {
+	node *tree.Node
+}
+
+/*
+https://www.geeksforgeeks.org/inheritance-in-golang/
+通过composition拓展已有类型
+*/
+func (myNode *myTreeNode) postOrderTraversal() {
+	if myNode == nil || myNode.node == nil {
+		return
+	}
+
+	left := myTreeNode{myNode.node.Left}
+	right := myTreeNode{myNode.node.Right}
+
+	left.postOrderTraversal()
+	right.postOrderTraversal()
+	myNode.node.Print()
+}
+
 func main() {
 	var root tree.Node
 
@@ -35,4 +56,8 @@ func main() {
 
 	fmt.Println("\nIn-order traversal")
 	root.InOrderTraverse()
+
+	fmt.Println("\nPost-order traversal")
+	myRoot := myTreeNode{&root}
+	myRoot.postOrderTraversal()
 }
