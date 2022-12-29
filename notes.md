@@ -176,8 +176,26 @@ String download(R r) {
 ### 
 1. `interface{}`表示任何类型
 
-### 接口的组合
+### 6-5 接口的组合
+首先定义两个接口
+```go
+type Retriever interface {
+	Get(url string) string
+}
 
+type Poster interface {
+	Post(url string,
+		form map[string]string) string
+}
+```
+某种情况下，我们需要一个类型实现这两种接口，我们就可以将两种接口组合成一种接口，比如下面这样
+```go
+type RetrieverPoster interface {
+    Retriever
+    Poster
+}
+```
+此外还可以在其中继续定义其他需要实现的方法或者加入其他接口进行组合。
 
 ### 6-6 go常用接口
 #### 6-6-1 `Stringer` Interface && `String() string` Method
