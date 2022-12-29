@@ -2,26 +2,26 @@ package main
 
 import "fmt"
 
-//func main() {
-//	declareSlice()
-//
-//	arr := [7]int{0, 1, 2, 3, 4, 5, 6}
-//
-//	// this is a way to get the slice of the array
-//	s := arr[:]
-//
-//	updateSlice(s)
-//
-//	reslice(s)
-//
-//	extendSlice()
-//
-//	sliceUnderTheHood()
-//
-//	sliceAppend()
-//
-//	commonSliceOperations()
-//}
+func main() {
+	declareSlice()
+
+	arr := [7]int{0, 1, 2, 3, 4, 5, 6}
+
+	// this is a way to get the slice of the array
+	s := arr[:]
+
+	updateSlice(s)
+
+	reslice(s)
+
+	extendSlice()
+
+	sliceUnderTheHood()
+
+	sliceAppend()
+
+	commonSliceOperations()
+}
 
 /*
  1. 区间左开右闭

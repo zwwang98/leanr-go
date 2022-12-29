@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-//func main() {
-//	declareMap()
-//	traverseMap()
-//	checkKeyExistenceInMap()
-//	deleteInMap()
-//}
+func main() {
+	declareMap()
+	traverseMap()
+	checkKeyExistenceInMap()
+	deleteInMap()
+}
 
 func declareMap() {
 	fmt.Println("[declareMap] To declare map, use \"map[{key type}]{value type}\"")

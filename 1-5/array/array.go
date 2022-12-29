@@ -2,6 +2,13 @@ package main
 
 import "fmt"
 
+func main() {
+	declareArray()
+
+	arr := [5]int{1, 2, 3, 4, 5}
+	changeArr(&arr)
+}
+
 func declareArray() {
 	var arr1 [5]int
 	arr2 := [3]int{1, 2, 3}
